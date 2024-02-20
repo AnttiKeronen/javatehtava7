@@ -10,7 +10,7 @@ public class App {
         String university;
 
         System.out.println("Tervetuloa Gifu-järjestelmään");
-        System.out.print("Mille yliopistolle haluat ottaa ohjelman käyttöön? ");
+        System.out.print("Mille yliopistolle haluat ottaa järjestelmän käyttöön? ");
         university = scanner.nextLine();
         System.out.println();
 
@@ -26,31 +26,33 @@ public class App {
 
             switch (choice) {
                 case 1:
-                    System.out.println("Anna kurssin nimi: ");
+                    System.out.print("Anna kurssin nimi: ");
                     scanner.nextLine();
                     String courseName = scanner.nextLine();
-    
-                    System.out.println();
-    
-                    System.out.println("Anna kurssin ID: ");
+                    System.out.println(courseName);
+                
+                    System.out.print("Anna kurssin ID: ");
                     String courseID = scanner.nextLine();
-    
-                    System.out.println();
-    
-                    System.out.println("Anna kurssin maksimi opiskelijamäärä: ");
+                    System.out.println(courseID);
+                
+                    System.out.print("Anna kurssin maksimi opiskelijamäärä: ");
                     int maxStudents = scanner.nextInt();
-    
-                    System.out.println();
-    
+                    System.out.println(maxStudents);
+                
                     gifu.addCourse(new CourseImpl(courseName, courseID, maxStudents));
                     break;
+            
 
                 case 2:
                     System.out.print("Anna opiskelijan nimi: ");
                     scanner.nextLine();
                     String studentName = scanner.nextLine();
+                    System.out.println(studentName);
+
                     System.out.print("Anna opiskelijan opiskelijanumero: ");
                     String studentID = scanner.nextLine();
+                    System.out.println(studentID);
+                    
                     gifu.addStudent(new StudentImpl(studentName, studentID));
                     break;
                 case 3:
