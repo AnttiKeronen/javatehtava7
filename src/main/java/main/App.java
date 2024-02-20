@@ -5,11 +5,17 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        Gifu gifu = new Gifu();
         Scanner scanner = new Scanner(System.in);
         int choice;
+        String university;
 
         System.out.println("Tervetuloa Gifu-järjestelmään");
+        System.out.print("Mille yliopistolle haluat ottaa ohjelman käyttöön? ");
+        university = scanner.nextLine();
+
+        Gifu gifu = new Gifu(university);
+
+       
 
         do {
             System.out.println("1) Luo uusi kurssi, 2) Luo uusi opiskelija, 3) Listaa kurssit, 4) Listaa opiskelijat, " +

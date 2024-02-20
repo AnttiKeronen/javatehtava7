@@ -43,15 +43,23 @@ class Enrollment {
 }
 
 public class Gifu {
+    public String university;
     public List<Course> courses;
     public List<Student> students;
     public List<Enrollment> enrollments;
 
-    public Gifu() {
+    public Gifu(String university) {
+        this.university = university;
         courses = new ArrayList<>();
         students = new ArrayList<>();
         enrollments = new ArrayList<>();
     
+    }
+    public String getUniversity() {
+        return university;
+    }
+    public void setUniversity(String university) {
+        this.university = university;
     }
 
     public List<Course> getCourses() {
