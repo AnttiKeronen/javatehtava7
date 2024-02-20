@@ -29,15 +29,15 @@ public class App {
                     System.out.print("Anna kurssin nimi: ");
                     scanner.nextLine();
                     String courseName = scanner.nextLine();
-                    System.out.println(courseName);
+                   
                 
                     System.out.print("Anna kurssin ID: ");
                     String courseID = scanner.nextLine();
-                    System.out.println(courseID);
+                    
                 
                     System.out.print("Anna kurssin maksimi opiskelijamäärä: ");
                     int maxStudents = scanner.nextInt();
-                    System.out.println(maxStudents);
+                   
                 
                     gifu.addCourse(new CourseImpl(courseName, courseID, maxStudents));
                     break;
@@ -47,12 +47,12 @@ public class App {
                     System.out.print("Anna opiskelijan nimi: ");
                     scanner.nextLine();
                     String studentName = scanner.nextLine();
-                    System.out.println(studentName);
+                  
 
                     System.out.print("Anna opiskelijan opiskelijanumero: ");
                     String studentID = scanner.nextLine();
-                    System.out.println(studentID);
-                    
+        
+
                     gifu.addStudent(new StudentImpl(studentName, studentID));
                     break;
                 case 3:
@@ -69,6 +69,7 @@ public class App {
                     System.out.print("Minkä opiskelijan haluat lisätä kurssille? Syötä opiskelijan numero: ");
                     int studentNumber = scanner.nextInt();
                     gifu.addStudentToCourse(gifu.getStudents().get(studentNumber), gifu.getCourses().get(courseNumber));
+                    System.out.println();
                     break;
                 case 6:
                     gifu.listCourses();
@@ -79,6 +80,7 @@ public class App {
                         System.out.print("Anna arvosana opiskelijalle " + student.getStudentID() + " " + student.getStudentName() + ": ");
                         int grade = scanner.nextInt();
                         gifu.setGradeForStudent(student, selectedCourse, grade);
+                        System.out.println();
                     }
                     break;
                 case 7:
