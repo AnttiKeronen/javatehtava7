@@ -118,7 +118,7 @@ public class Gifu {
     }
 
     public void listStudentGrades(Student student) {
-        System.out.println("Opiskelijan " + student.getStudentID() + " arvosanat:");
+        System.out.println("Opiskelijan " + student.getStudentID() + " (" + student.getStudentName() + ") arvosanat:");
         boolean hasGrades = false;
         for (Course course : courses) {
             for (Enrollment enrollment : enrollments) {
