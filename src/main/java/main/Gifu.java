@@ -118,52 +118,36 @@ public class Gifu {
     }
 
     public void listStudentGrades(Student student) {
+        System.out.println("Opiskelijan " + student.getStudentID() + " arvosanat:");
         boolean hasGrades = false;
         for (Course course : courses) {
-            boolean hasGradeForCourse = false;
             for (Enrollment enrollment : enrollments) {
                 if (enrollment.getStudent().equals(student) && enrollment.getCourse().equals(course)) {
                     if (enrollment.getGrade() != -1) {
                         System.out.println(course.getCourseID() + " " + course.getCourseName() +
                                 ", arvosana: " + enrollment.getGrade());
                         hasGrades = true;
-                        hasGradeForCourse = true;
                     }
                     break;
                 }
-            }
-            if (!hasGradeForCourse) {
-                System.out.println(course.getCourseID() + " " + course.getCourseName() + ", arvosana: -1");
             }
         }
         if (!hasGrades) {
             System.out.println("Opiskelijalla ei ole arvosanoja.");
         }
     }
-    
-    
 
-   
     public void listAllGrades() {
-        for (Enrollment enrollment : enrollments) {
-            System.out.println(enrollment.getCourse().getCourseID() + " " + enrollment.getCourse().getCourseName());
-            for (Student student : students) {
-                int grade = -1; // Default value is -1 if the grade has not been given
-                for (Enrollment e : enrollments) {
-                    if (e.getStudent().equals(student) && e.getCourse().equals(enrollment.getCourse())) {
-                        int tempGrade = e.getGrade();
-                        if (tempGrade != -1) {
-                            grade = tempGrade;
-                        }
-                        break;
-                    }
-                }
-                if (grade != -1) {
-                    System.out.println(student.getStudentID() + " " + student.getStudentName() + ", arvosana: " + grade);
+        System.out.println("Kaikkien kurssien opiskelijoiden arvosanat:");
+        for (Course course : courses) {
+            System.out.println(course.getCourseID() + " " + course.getCourseName());
+            for (Enrollment enrollment : enrollments) {
+                if (enrollment.getCourse().equals(course)) {
+                    System.out.println(enrollment.getStudent().getStudentID() + " " + enrollment.getStudent().getStudentName()
+                            + ", arvosana: " + enrollment.getGrade());
                 }
             }
-            System.out.println(); // Empty line to separate courses
+            
         }
     }
 }
-    
