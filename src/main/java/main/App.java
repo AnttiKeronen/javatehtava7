@@ -107,7 +107,8 @@ public class App {
                             continue; 
                         }
                     
-                        System.out.print("Anna arvosana opiskelijalle " + student.getStudentID() + " " + student.getStudentName() + ": ");
+                        System.out.print("Anna arvosana opiskelijalle " + student.getStudentID() + " " + student.getStudentName());
+                        System.out.println();
                         int grade = scanner.nextInt();
                         gifu.setGradeForStudent(student, selectedCourse, grade);
                     }
