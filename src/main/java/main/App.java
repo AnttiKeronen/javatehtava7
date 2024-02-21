@@ -98,7 +98,7 @@ public class App {
                     for (Enrollment enrollment : gifu.enrollments) {
                         if (enrollment.getCourse().equals(selectedCourse)) {
                             Student student = enrollment.getStudent();
-                            System.out.print("Anna arvosana opiskelijalle " + student.getStudentID() + " " + student.getStudentName() + ": ");
+                            System.out.print("Anna arvosana opiskelijalle " + student.getStudentID() + " " + student.getStudentName());
                             System.out.println();
                             int grade = scanner.nextInt();
                             gifu.setGradeForStudent(student, selectedCourse, grade);
