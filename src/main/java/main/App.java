@@ -95,6 +95,7 @@ public class App {
                 case 8:
                     gifu.listStudents();
                     System.out.print("Minkä opiskelijan arvosanat haluat listata? Syötä opiskelijan numero:");
+                    System.out.println();
                     int studentNumberToGradeList = scanner.nextInt();
                     gifu.listStudentGrades(gifu.students.get(studentNumberToGradeList));
                     break;
