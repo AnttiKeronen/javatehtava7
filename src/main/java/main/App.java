@@ -10,7 +10,7 @@ public class App {
         String university;
 
         System.out.println("Tervetuloa Gifu-järjestelmään");
-        System.out.print("Mille yliopistolle haluat ottaa järjestelmän käyttöön? ");
+        System.out.print("Mille yliopistolle haluat ottaa järjestelmän käyttöön?");
         university = scanner.nextLine();
         System.out.println();
 
@@ -26,12 +26,16 @@ public class App {
 
             switch (choice) {
                 case 1:
-                    System.out.print("Anna kurssin nimi: ");
+                    System.out.print("Anna kurssin nimi:");
+                    System.out.println();
                     scanner.nextLine();
+    
                     String courseName = scanner.nextLine();
-                    System.out.print("Anna kurssin ID: ");
+                    System.out.print("Anna kurssin ID:");
+                    System.out.println();
                     String courseID = scanner.nextLine();
-                    System.out.print("Anna kurssin maksimi opiskelijamäärä: ");
+                    System.out.print("Anna kurssin maksimi opiskelijamäärä:");
+                    System.out.println();
                     int maxStudents = scanner.nextInt();
     
                     gifu.addCourse(new CourseImpl(courseName, courseID, maxStudents));
@@ -41,12 +45,14 @@ public class App {
             
 
                 case 2:
-                    System.out.print("Anna opiskelijan nimi: ");
+                    System.out.print("Anna opiskelijan nimi:");
+                    System.out.println();
                     scanner.nextLine();
                     String studentName = scanner.nextLine();
                   
 
-                    System.out.print("Anna opiskelijan opiskelijanumero: ");
+                    System.out.print("Anna opiskelijan opiskelijanumero:");
+                    System.out.println();
                     String studentID = scanner.nextLine();
         
 
