@@ -26,16 +26,14 @@ public class App {
 
             switch (choice) {
                 case 1:
-                    System.out.print("Anna kurssin nimi: ");
+                    System.out.print("Anna kurssin nimi:");
                     scanner.nextLine();
                     String courseName = scanner.nextLine();
-                   
-                
-                    System.out.print("Anna kurssin ID: ");
+                    System.out.print("Anna kurssin ID:");
                     String courseID = scanner.nextLine();
                     
                 
-                    System.out.print("Anna kurssin maksimi opiskelijamäärä: ");
+                    System.out.print("Anna kurssin maksimi opiskelijamäärä:");
                     int maxStudents = scanner.nextInt();
                    
                 
@@ -44,12 +42,12 @@ public class App {
             
 
                 case 2:
-                    System.out.print("Anna opiskelijan nimi: ");
+                    System.out.print("Anna opiskelijan nimi:");
                     scanner.nextLine();
                     String studentName = scanner.nextLine();
                   
 
-                    System.out.print("Anna opiskelijan opiskelijanumero: ");
+                    System.out.print("Anna opiskelijan opiskelijanumero:");
                     String studentID = scanner.nextLine();
         
 
@@ -66,18 +64,18 @@ public class App {
                     System.out.println("Mille kurssille haluat lisätä opiskelijan? Syötä kurssin numero:");
                     int courseNumber = scanner.nextInt();
                     gifu.listStudents();
-                    System.out.print("Minkä opiskelijan haluat lisätä kurssille? Syötä opiskelijan numero: ");
+                    System.out.print("Minkä opiskelijan haluat lisätä kurssille? Syötä opiskelijan numero:");
                     int studentNumber = scanner.nextInt();
                     gifu.addStudentToCourse(gifu.getStudents().get(studentNumber), gifu.getCourses().get(courseNumber));
                     System.out.println();
                     break;
                 case 6:
                     gifu.listCourses();
-                    System.out.println("Minkä kurssin haluat arvostella? Syötä kurssin numero: ");
+                    System.out.println("Minkä kurssin haluat arvostella? Syötä kurssin numero:");
                     int courseNumberToGrade = scanner.nextInt();
                     Course selectedCourse = gifu.courses.get(courseNumberToGrade);
                     for (Student student : gifu.students) {
-                        System.out.print("Anna arvosana opiskelijalle " + student.getStudentID() + " " + student.getStudentName() + ": ");
+                        System.out.print("Anna arvosana opiskelijalle " + student.getStudentID() + " " + student.getStudentName() + ":");
                         int grade = scanner.nextInt();
                         gifu.setGradeForStudent(student, selectedCourse, grade);
                         System.out.println();
@@ -91,7 +89,7 @@ public class App {
                     break;
                 case 8:
                     gifu.listStudents();
-                    System.out.print("Minkä opiskelijan arvosanat haluat listata? Syötä opiskelijan numero: ");
+                    System.out.print("Minkä opiskelijan arvosanat haluat listata? Syötä opiskelijan numero:");
                     int studentNumberToGradeList = scanner.nextInt();
                     gifu.listStudentGrades(gifu.students.get(studentNumberToGradeList));
                     break;
