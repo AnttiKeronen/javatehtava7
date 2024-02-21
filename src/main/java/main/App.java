@@ -75,17 +75,44 @@ public class App {
                     System.out.println();
                     break;
                 case 6:
+          
                     gifu.listCourses();
                     System.out.println("Minkä kurssin haluat arvostella? Syötä kurssin numero:");
                     int courseNumberToGrade = scanner.nextInt();
                     Course selectedCourse = gifu.courses.get(courseNumberToGrade);
+                
+               
+                    boolean courseHasStudents = false;
+                    for (Enrollment enrollment : gifu.enrollments) {
+                        if (enrollment.getCourse().equals(selectedCourse)) {
+                            courseHasStudents = true;
+                            break;
+                        }
+                    }
+                    if (!courseHasStudents) {
+                        System.out.println("Kurssille ei ole vielä lisätty opiskelijoita.");
+                        break;
+                    }
+                
                     for (Student student : gifu.students) {
-                        System.out.print("Anna arvosana opiskelijalle " + student.getStudentID() + " " + student.getStudentName());
+                    
+                        boolean studentIsEnrolled = false;
+                        for (Enrollment enrollment : gifu.enrollments) {
+                            if (enrollment.getStudent().equals(student) && enrollment.getCourse().equals(selectedCourse)) {
+                                studentIsEnrolled = true;
+                                break;
+                            }
+                        }
+                        if (!studentIsEnrolled) {
+                            continue; 
+                        }
+                    
+                        System.out.print("Anna arvosana opiskelijalle " + student.getStudentID() + " " + student.getStudentName() + ": ");
                         int grade = scanner.nextInt();
                         gifu.setGradeForStudent(student, selectedCourse, grade);
-                        System.out.println();
                     }
                     break;
+            
                 case 7:
                     gifu.listCourses();
                     System.out.print("Minkä kurssin opiskelijat haluat listata? Syötä kurssin numero:");
