@@ -26,28 +26,27 @@ public class App {
 
             switch (choice) {
                 case 1:
-                    System.out.print("Anna kurssin nimi:");
+                    System.out.print("Anna kurssin nimi: ");
                     scanner.nextLine();
                     String courseName = scanner.nextLine();
-                    System.out.print("Anna kurssin ID:");
+                    System.out.print("Anna kurssin ID: ");
                     String courseID = scanner.nextLine();
-                    
-                
-                    System.out.print("Anna kurssin maksimi opiskelijamäärä:");
+                    System.out.print("Anna kurssin maksimi opiskelijamäärä: ");
                     int maxStudents = scanner.nextInt();
-                   
-                
+    
                     gifu.addCourse(new CourseImpl(courseName, courseID, maxStudents));
                     break;
+
+
             
 
                 case 2:
-                    System.out.print("Anna opiskelijan nimi:");
+                    System.out.print("Anna opiskelijan nimi: ");
                     scanner.nextLine();
                     String studentName = scanner.nextLine();
                   
 
-                    System.out.print("Anna opiskelijan opiskelijanumero:");
+                    System.out.print("Anna opiskelijan opiskelijanumero: ");
                     String studentID = scanner.nextLine();
         
 
@@ -75,7 +74,7 @@ public class App {
                     int courseNumberToGrade = scanner.nextInt();
                     Course selectedCourse = gifu.courses.get(courseNumberToGrade);
                     for (Student student : gifu.students) {
-                        System.out.print("Anna arvosana opiskelijalle " + student.getStudentID() + " " + student.getStudentName() + ":");
+                        System.out.print("Anna arvosana opiskelijalle " + student.getStudentID() + " " + student.getStudentName());
                         int grade = scanner.nextInt();
                         gifu.setGradeForStudent(student, selectedCourse, grade);
                         System.out.println();

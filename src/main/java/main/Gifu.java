@@ -148,16 +148,21 @@ public class Gifu {
         for (Enrollment enrollment : enrollments) {
             System.out.println(enrollment.getCourse().getCourseID() + " " + enrollment.getCourse().getCourseName());
             for (Student student : students) {
-                int grade = -1; // Oletusarvo -1, jos arvosanaa ei ole annettu
+                int grade = -1; // Default value is -1 if the grade has not been given
                 for (Enrollment e : enrollments) {
                     if (e.getStudent().equals(student) && e.getCourse().equals(enrollment.getCourse())) {
-                        grade = e.getGrade();
+                        int tempGrade = e.getGrade();
+                        if (tempGrade != -1) {
+                            grade = tempGrade;
+                        }
                         break;
                     }
                 }
-                System.out.println(student.getStudentID() + " " + student.getStudentName() + ", arvosana: " + grade);
+                if (grade != -1) {
+                    System.out.println(student.getStudentID() + " " + student.getStudentName() + ", arvosana: " + grade);
+                }
             }
-            System.out.println(); // Tyhjä rivi erottamaan kurssit toisistaan
+            System.out.println(); // Empty line to separate courses
         }
     }
 }
