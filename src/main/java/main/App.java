@@ -75,44 +75,38 @@ public class App {
                     System.out.println();
                     break;
                 case 6:
-          
                     gifu.listCourses();
                     System.out.println("Minkä kurssin haluat arvostella? Syötä kurssin numero:");
                     int courseNumberToGrade = scanner.nextInt();
                     Course selectedCourse = gifu.courses.get(courseNumberToGrade);
-                
-               
-                    boolean courseHasStudents = false;
+                    
+                    
+                    boolean hasStudents = false;
                     for (Enrollment enrollment : gifu.enrollments) {
                         if (enrollment.getCourse().equals(selectedCourse)) {
-                            courseHasStudents = true;
+                            hasStudents = true;
                             break;
                         }
                     }
-                    if (!courseHasStudents) {
-                        System.out.println("Kurssille ei ole vielä lisätty opiskelijoita.");
+                    
+                    if (!hasStudents) {
+                        System.out.println("Kurssilla ei ole vielä opiskelijoita. Lisää opiskelijoita kurssille ennen arvostelua.");
                         break;
                     }
-                
-                    for (Student student : gifu.students) {
                     
-                        boolean studentIsEnrolled = false;
-                        for (Enrollment enrollment : gifu.enrollments) {
-                            if (enrollment.getStudent().equals(student) && enrollment.getCourse().equals(selectedCourse)) {
-                                studentIsEnrolled = true;
-                                break;
-                            }
+                   
+                    for (Enrollment enrollment : gifu.enrollments) {
+                        if (enrollment.getCourse().equals(selectedCourse)) {
+                            Student student = enrollment.getStudent();
+                            System.out.print("Anna arvosana opiskelijalle " + student.getStudentID() + " " + student.getStudentName() + ": ");
+                            int grade = scanner.nextInt();
+                            gifu.setGradeForStudent(student, selectedCourse, grade);
                         }
-                        if (!studentIsEnrolled) {
-                            continue; 
-                        }
-                    
-                        System.out.print("Anna arvosana opiskelijalle " + student.getStudentID() + " " + student.getStudentName());
-                        System.out.println();
-                        int grade = scanner.nextInt();
-                        gifu.setGradeForStudent(student, selectedCourse, grade);
                     }
                     break;
+                
+          
+                   
             
                 case 7:
                     gifu.listCourses();

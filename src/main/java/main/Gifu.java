@@ -138,7 +138,6 @@ public class Gifu {
     }
 
     public void listAllGrades() {
-        System.out.println("Kaikkien kurssien opiskelijoiden arvosanat:");
         for (Course course : courses) {
             System.out.println(course.getCourseID() + " " + course.getCourseName());
             for (Enrollment enrollment : enrollments) {
